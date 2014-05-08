@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.*;
+
 import com.uboxol.serialcomport.SerialComPort;
 import com.uboxol.serialcomport.SerialComPortControl;
 import com.uboxol.serialcomport.SerialPortListener;
@@ -315,12 +316,6 @@ public class MyActivity extends Activity {
             serialComPortControl = new SerialComPortControl("uboxol.usbhost.USBTOCOM", this);
 //            serialComPortControl = new SerialComPortControl("uboxol.usbhost.USBTOCOM", myHandler, this);   //传入myHandler可以直接接受消息，无需使用read方法读取
 
-            serialComPortControl.setOnCloseListener(new SerialPortListener() {
-                @Override
-                public void dispatch(int flag) {
-                    stopReadData();
-                }
-            });
 
         }catch (Exception e)
         {
